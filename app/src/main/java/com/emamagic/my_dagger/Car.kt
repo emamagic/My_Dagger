@@ -8,9 +8,8 @@ class Car @Inject constructor(
     val wheels: Wheels
 ) {
 
-    private val TAG = "Car"
 
     fun drive() {
-        Log.e(TAG, "driving ...")
+        Log.e("TAG", "driving ...")
     }
 }
