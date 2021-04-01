@@ -2,10 +2,12 @@ package com.emamagic.my_dagger
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var car: Car
+    @Inject
+    lateinit var car: Car
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -13,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val component = DaggerCarComponent.create()
-        car = component.getCar()
+        component.inject(this)
         car.drive()
 
 
