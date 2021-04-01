@@ -4,12 +4,14 @@ import com.emamagic.my_dagger.car.DieselEngine
 import com.emamagic.my_dagger.car.Engine
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 
 @Module
-abstract class DieselEngineModule {
+class DieselEngineModule constructor(private val horsePower: Int) {
 
-
-    @Binds
-    abstract fun bindsEngine(petrolEngine: DieselEngine): Engine
+    @Provides
+    fun provideEngine(): Engine {
+        return DieselEngine(horsePower)
+    }
 
 }
