@@ -2,6 +2,8 @@ package com.emamagic.my_dagger
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.emamagic.my_dagger.car.Car
+import com.emamagic.my_dagger.dagger.DaggerCarComponent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {

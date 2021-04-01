@@ -1,5 +1,8 @@
-package com.emamagic.my_dagger
+package com.emamagic.my_dagger.dagger
 
+import com.emamagic.my_dagger.car.Rims
+import com.emamagic.my_dagger.car.Tires
+import com.emamagic.my_dagger.car.Wheels
 import dagger.Module
 import dagger.Provides
 
@@ -8,14 +11,14 @@ object WheelsModules {
 
     @JvmStatic
     @Provides
-    fun provideRims(): Rims{
+    fun provideRims(): Rims {
         return Rims()
     }
 
 
     @JvmStatic
     @Provides
-    fun provideTires(): Tires{
+    fun provideTires(): Tires {
         val tires = Tires()
         tires.inflate()
         return tires
@@ -23,7 +26,7 @@ object WheelsModules {
 
     @JvmStatic
     @Provides
-    fun provideWheels(tires: Tires ,rims: Rims): Wheels{
+    fun provideWheels(tires: Tires, rims: Rims): Wheels {
         return Wheels(rims, tires)
     }
 
