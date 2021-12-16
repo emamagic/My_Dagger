@@ -6,7 +6,6 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    // it could not be private. why??
     @Inject
     lateinit var car: Car
 
