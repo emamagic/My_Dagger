@@ -1,22 +1,19 @@
 package com.emamagic.my_dagger
 
 import android.app.Application
-import com.emamagic.my_dagger.dagger.CarComponent
-import com.emamagic.my_dagger.dagger.DaggerCarComponent
+import com.emamagic.my_dagger.dagger.AppComponent
+import com.emamagic.my_dagger.dagger.DaggerAppComponent
 
 class App: Application() {
 
-    private lateinit var carComponent: CarComponent
+    private lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
 
-        val component = DaggerCarComponent.builder()
-            .horsePower(100)
-            .engineCapacity(1200)
-            .build()
+        val component = DaggerAppComponent.create()
     }
 
 
-    fun getAppComponent(): CarComponent = carComponent
+    fun getAppComponent(): AppComponent = appComponent
 }

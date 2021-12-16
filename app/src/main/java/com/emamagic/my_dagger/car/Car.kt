@@ -1,8 +1,10 @@
 package com.emamagic.my_dagger.car
 
 import android.util.Log
+import com.emamagic.my_dagger.dagger.PerActivity
 import javax.inject.Inject
 
+@PerActivity
 class Car @Inject constructor(
     private val engine: Engine,
     private val wheels: Wheels,

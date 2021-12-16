@@ -5,11 +5,10 @@ import com.emamagic.my_dagger.car.Car
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Named
-import javax.inject.Singleton
 
-@Singleton
-@Component (modules = [WheelsModules::class , PetrolEngineModule::class])
-interface CarComponent {
+@PerActivity
+@Component (dependencies = [AppComponent::class], modules = [WheelsModules::class , PetrolEngineModule::class])
+interface ActivityComponent {
 
     fun inject(mainActivity: MainActivity)
 
@@ -23,7 +22,10 @@ interface CarComponent {
         @BindsInstance
         fun engineCapacity(@Named("engine capacity") engineCapacity: Int): Builder
 
-        fun build(): CarComponent
+        // if we have not @Component.Builder this builder will generated automatically
+        fun appComponent(appComponent: AppComponent): Builder
+
+        fun build(): ActivityComponent
     }
 
 }

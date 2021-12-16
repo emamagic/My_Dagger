@@ -1,11 +1,6 @@
 package com.emamagic.my_dagger.car
 
-import javax.inject.Inject
-import javax.inject.Singleton
-
-@Singleton
-class Driver @Inject constructor() {
-
-
+class Driver {
+    // we do not own this class so we can not annotate it with @Inject
 
 }

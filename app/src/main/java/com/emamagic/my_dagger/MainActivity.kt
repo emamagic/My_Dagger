@@ -3,7 +3,7 @@ package com.emamagic.my_dagger
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.emamagic.my_dagger.car.Car
-import com.emamagic.my_dagger.dagger.DaggerCarComponent
+import com.emamagic.my_dagger.dagger.DaggerActivityComponent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +20,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val component = (application as App).getAppComponent()
+        val component = DaggerActivityComponent.builder()
+            .horsePower(120)
+            .engineCapacity(1400)
+            .appComponent((application as App).getAppComponent())
+            .build()
+
         component.inject(this)
 
         // same driver
