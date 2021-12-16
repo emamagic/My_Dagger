@@ -6,6 +6,7 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
+    // it could not be private. why??
     @Inject
     lateinit var car: Car
 
@@ -17,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         val component = DaggerCarComponent.create()
         component.inject(this)
         car.drive()
-
 
     }
 }
