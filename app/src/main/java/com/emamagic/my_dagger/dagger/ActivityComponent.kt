@@ -22,7 +22,7 @@ interface ActivityComponent {
         @BindsInstance
         fun engineCapacity(@Named("engine capacity") engineCapacity: Int): Builder
 
-        // if we have not @Component.Builder this builder will generated automatically
+        // if we have not @Component.Builder this builder will generated automatically for dependecies
         fun appComponent(appComponent: AppComponent): Builder
 
         fun build(): ActivityComponent
